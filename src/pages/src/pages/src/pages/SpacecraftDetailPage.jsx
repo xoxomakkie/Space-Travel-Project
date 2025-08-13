@@ -1,10 +1,11 @@
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import SpaceTravelApi from "../services/SpaceTravelApi";
 import Loading from "../components/Loading/Loading";
 
 export default function SpacecraftDetailPage() {
   const { id } = useParams();
+  const navigate = useNavigate();
   const [spacecraft, setSpacecraft] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -26,7 +27,19 @@ export default function SpacecraftDetailPage() {
       <p>Capacity: {spacecraft.capacity}</p>
       <p>{spacecraft.description}</p>
       <p>Current Location: Planet ID {spacecraft.currentLocation}</p>
-      <Link to="/spacecrafts" className="link">Back to Spacecrafts</Link>
+
+      <div style={{ display: "flex", gap: "1rem", marginTop: "1rem" }}>
+        <Link to="/spacecrafts" className="link">Back to Spacecrafts</Link>
+        <button
+          className="link"
+          onClick={async () => {
+            await SpaceTravelApi.destroySpacecraftById({ id: spacecraft.id });
+            navigate("/spacecrafts");
+          }}
+        >
+          Destroy Spacecraft
+        </button>
+      </div>
     </main>
   );
 }
