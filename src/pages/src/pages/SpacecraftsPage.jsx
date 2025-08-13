@@ -1,10 +1,11 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { SpaceTravelContext } from "../context/SpaceTravelContext";
+import SpaceTravelApi from "../services/SpaceTravelApi";
 import Loading from "../components/Loading/Loading";
 
 export default function SpacecraftsPage() {
-  const { spacecrafts, loading } = useContext(SpaceTravelContext);
+  const { spacecrafts, loading, fetchSpacecrafts } = useContext(SpaceTravelContext);
 
   if (loading) return <Loading />;
 
@@ -17,7 +18,19 @@ export default function SpacecraftsPage() {
           <li key={sc.id} style={{ marginBottom: "1rem", border: "1px solid var(--panel)", padding: "1rem", borderRadius: "0.5rem" }}>
             <h2>{sc.name}</h2>
             <p>Capacity: {sc.capacity}</p>
-            <Link to={`/spacecrafts/${sc.id}`} className="link">View Details</Link>
+            <div style={{ display: "flex", gap: "1rem" }}>
+              <Link to={`/spacecrafts/${sc.id}`} className="link">View Details</Link>
+              <button
+                className="link"
+                style={{ marginLeft: "1rem" }}
+                onClick={async () => {
+                  await SpaceTravelApi.destroySpacecraftById({ id: sc.id });
+                  fetchSpacecrafts();
+                }}
+              >
+                Destroy
+              </button>
+            </div>
           </li>
         ))}
       </ul>
