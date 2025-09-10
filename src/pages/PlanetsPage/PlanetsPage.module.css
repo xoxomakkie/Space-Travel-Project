@@ -176,3 +176,13 @@
   max-width: 600px;
   margin: 2rem auto;
 }
+
+@media (max-width: 768px) {
+  .planets__form {
+    grid-template-columns: 1fr;
+  }
+  
+  .planets__grid {
+    grid-template-columns: 1fr;
+  }
+}
