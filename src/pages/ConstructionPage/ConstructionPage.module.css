@@ -1,0 +1,128 @@
+.construction {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.construction__header {
+  margin-bottom: 2rem;
+}
+
+.construction__backButton {
+  color: #3b82f6;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.construction__backButton:hover {
+  color: #60a5fa;
+}
+
+.construction__content {
+  background: linear-gradient(145deg, #1f2937 0%, #374151 100%);
+  border-radius: 1rem;
+  padding: 2rem;
+  border: 1px solid rgba(59, 130, 246, 0.2);
+}
+
+.construction__title {
+  color: #3b82f6;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.construction__subtitle {
+  color: #d1d5db;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.construction__form {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.construction__field {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.construction__label {
+  color: #d1d5db;
+  font-weight: 500;
+}
+
+.construction__input,
+.construction__textarea {
+  padding: 0.75rem;
+  border: 2px solid #4b5563;
+  border-radius: 0.5rem;
+  background: #374151;
+  color: white;
+  transition: border-color 0.3s ease;
+}
+
+.construction__input:focus,
+.construction__textarea:focus {
+  outline: none;
+  border-color: #3b82f6;
+}
+
+.construction__input--error,
+.construction__textarea--error {
+  border-color: #dc2626;
+}
+
+.construction__textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.construction__error {
+  color: #dc2626;
+  font-size: 0.875rem;
+}
+
+.construction__actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.construction__button {
+  padding: 0.75rem 2rem;
+  background: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.construction__button:hover:not(:disabled) {
+  background: #2563eb;
+  transform: translateY(-1px);
+}
+
+.construction__button:disabled {
+  background: #6b7280;
+  cursor: not-allowed;
+}
+
+.construction__cancelButton {
+  padding: 0.75rem 2rem;
+  background: #6b7280;
+  color: white;
+  text-decoration: none;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.construction__cancelButton:hover {
+  background: #4b5563;
+}
